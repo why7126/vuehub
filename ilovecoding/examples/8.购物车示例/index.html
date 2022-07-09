@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车界面</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="app">
+			<div v-if="books.length">
+				<table>
+					<thead>
+						<tr>
+							<td></td>
+							<td>书籍名称</td>
+							<td>出版日期</td>
+							<td>价格</td>
+							<td>购买数量</td>
+							<td>操作</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(item, index) in books">
+							<td>{{ item.id }}</td>
+							<td>{{ item.name }}</td>
+							<td>{{ item.date }}</td>
+							<td>{{ item.price | showPrice }}</td>
+							<td>
+								<button @click="minus(index)" v-bind:disabled="item.count<=1">-</button>
+								{{ item.count }}
+								<button @click="add(index)">+</button>
+							</td>
+							<td><button @click="remove(index)">移除</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<h2>总价格：{{ totalPrice | showPrice }}</h2>
+			</div>
+			<h2 v-else>购物车为空</h2>
+			<div>
+				<h2>数组的filter示例：{{ array_filter }}</h2>
+				<h2>数组的map示例：{{ array_map }}</h2>
+				<h2>数组的reduce示例：{{ array_reduce }}</h2>
+				<h2>数组的filter+map+reduce组合使用示例：{{ array_more }}</h2>
+				<h2>数组的filter+map+reduce组合使用示例简写：{{ array_more1 }}</h2>
+			</div>
+		</div>
+		
+		<script src="../js/vue.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

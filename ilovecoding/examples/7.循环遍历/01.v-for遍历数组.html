@@ -1,0 +1,29 @@
+<strong></strong><!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 遍历数组： 不使用索引值 -->
+			<ul>
+				<li v-for="item in arrays">{{ item }}</li>
+			</ul>
+			<!-- 遍历数组： 使用索引值 -->
+			<ul>
+				<li v-for="(item, index) in arrays">{{ index }}-{{ item }}</li>
+			</ul>
+			
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					arrays : ['helloworld', '你好', '谢谢']
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1.事件调用时方法以没有参数，可以不用加括号 -->
+			<div>
+				<button @click="btn1Click">按钮1：方法无参数，调用不加()</button>
+			</div>
+			<div>
+				<button @click="btn1Click()">按钮2，方法无参数，调用加()</button>
+			</div>
+			<!-- 2.在事件定义时，写方法时省略了小括号，但是方法本身是需要一个参数的，这时，Vue会默认将浏览器生产的event事件对象作为参数传入方法 -->
+			<div>
+				<button @click="btn2Click(123)">按钮3，方法有参数，调用赋参</button>
+			</div>
+			<div>
+				<button @click="btn2Click()">按钮3，方法有参数，调用不给参()</button>
+			</div>
+			<div>
+				<button @click="btn2Click">按钮4，方法有参数，调用不给参不加()</button>
+			</div>
+			<!-- 3.在事件定义时，我们需要event对象，同时又需要其他参数 -->
+			<!-- 在调用方法时，通过$event进行传参获取到浏览器参数的event对象 -->
+			<div>
+				<button @click="btn3Click('123', $event)">按钮5，方法有event+其他参数</button>
+			</div>
+			
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: '#app',
+				data: {
+					counter: 0
+				},
+				methods: {
+					btn1Click(){
+						console.log('-----', '无参数')
+					},
+					btn2Click(event){
+						console.log('-----', event)
+					},
+					btn3Click(abc, event){
+						console.log('-----', abc, event)
+					}
+				}
+			})
+		</script>
+	</body>
+	
+</html>

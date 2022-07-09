@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 遍历数组： 不使用索引值 -->
+			<ul>
+				<li v-for="item in arrays">{{ item }}</li>
+			</ul>
+			<button @click="btnClickPush">Push</button>
+			<button @click="btnClickPop">Pop</button>
+			<button @click="btnClickShift">Shift</button>
+			<button @click="btnClickUnshift">Unshift</button>
+			<button @click="btnClickSplice">Splice</button>
+			<button @click="btnClickSort">Sort</button>
+			<button @click="btnClickReverse">Reverse</button>
+			<button @click="btnClickIndex()">Index</button>
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					arrays : ['helloworld', '你好', '谢谢']
+				},
+				methods: {
+					btnClickPush(){
+						// 数组末尾增加元素
+						this.arrays.push('aaa')
+						// this.arrays.push('aaa', 'bbb', 'ccc')
+					},
+					btnClickPop(){
+						// 删除数组中最后一个元素
+						this.arrays.pop()
+					},
+					btnClickShift(){
+						// 删除数组中第一个元素
+						this.arrays.shift()
+					},
+					btnClickUnshift(){
+						// 数组最前面增加元素
+						this.arrays.unshift('aaa')
+						// this.arrays.unshift('aaa', 'bbb', 'ccc')
+					},
+					btnClickSplice(){
+						//slice作用：删除/插入/替换元素
+						//slice(start, number, ...items)
+						//start：数组起始位置
+						//number：需要删除的元素数量，可为0，代表不删除，插入
+						//...items：需要新增的元素
+						//如果number和...items皆为空，则代表删除后续所有元素
+						this.arrays.splice(1, 1, 'aaa', 'bbb')
+					},
+					btnClickSort(){
+						//sort：排序
+						this.arrays.sort()
+					},
+					btnClickReverse(){
+						// reverse：数组反转
+						this.arrays.reverse()
+					},
+					//通过索引值修改数组中的元素不是响应式
+					btnClickIndex(){
+						this.arrays[1]='aaa'
+						//替换方法
+						//this.arrays.splice(1,1,'aaa')
+						//Vue.set(this.arrays,1,'aaa')
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

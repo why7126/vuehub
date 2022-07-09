@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 遍历对象：只获取一个值，获取的是value -->
+			<ul>
+				<li v-for="value in obj">{{ value }}</li>
+			</ul>
+			<!-- 遍历对象(字典):获取key和value -->
+			<ul>
+				<li v-for="(value, key) in obj">{{ key }}:{{ value }}</li>
+			</ul>
+			<!-- 遍历对象(字典):获取key、value和index -->
+			<ul>
+				<li v-for="(value, key, index) in obj">{{ index }}-{{ key }}:{{ value }}</li>
+			</ul>
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					obj : {
+						name: 'hello',
+						age: 22,
+						height: 1.88
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

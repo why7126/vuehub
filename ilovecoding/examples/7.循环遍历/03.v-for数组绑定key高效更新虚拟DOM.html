@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="item in arrays" :key="item">{{ item }}</li>
+			</ul>
+			
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					arrays : ['helloworld', '你好', '谢谢']
+				}
+			})
+		</script>
+	</body>
+</html>
