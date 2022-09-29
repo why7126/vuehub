@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+      <!-- 使用label时，点击文字也可以实现选择的操作 -->
+      <label for="basketball">
+        <input type="checkbox" id="basketball" value="篮球" v-model="hobbies">篮球
+      </label>
+      <label for="football">
+        <input type="checkbox" id="football" value="足球" v-model="hobbies">足球
+      </label>
+      <label for="volleyball">
+        <input type="checkbox" id="volleyball" value="排球" v-model="hobbies">排球
+      </label>
+      <label for="run">
+        <input type="checkbox" id="run" value="跑步" v-model="hobbies">跑步
+      </label>
+      <h2>您选择的是：{{ hobbies }}</h2>
+
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					message: 'helloworld',
+          hobbies: []
+				}
+			})
+		</script>
+	</body>
+</html>

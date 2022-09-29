@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+      <!-- 使用label时，点击文字也可以实现选择的操作 -->
+      <label for="isAgree">
+        <input type="checkbox" id="agree" v-model="isAgree">同意协议
+      </label>
+      <h2>您选择的是：{{ isAgree }}</h2>
+
+      <!-- 当勾选同意协议，则按钮可用，否则不可用 -->
+      <button v-bind:disabled="!isAgree">下一步</button>
+		</div>
+		<script src="../js/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data: {
+					message: 'helloworld',
+          isAgree: false
+				}
+			})
+		</script>
+	</body>
+</html>
